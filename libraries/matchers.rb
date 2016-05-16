@@ -38,6 +38,10 @@ if defined?(ChefSpec)
     ChefSpec::Matchers::ResourceMatcher.new(:lvm_volume_group, :create, resource_name)
   end
 
+  def create_lvm_aix_volume_group(resource_name)
+    ChefSpec::Matchers::ResourceMatcher.new(:lvm_aix_volume_group, :create, resource_name)
+  end
+
   def extend_lvm_volume_group(resource_name)
     ChefSpec::Matchers::ResourceMatcher.new(:lvm_volume_group, :extend, resource_name)
   end
