@@ -43,6 +43,7 @@ class Chef
       # The create action
       #
       def action_create
+        platform_test
         require_lvm_gems
         name = new_resource.name
         physical_volume_list = [new_resource.physical_volumes].flatten
@@ -103,7 +104,11 @@ class Chef
         end
       end
 
+      def platform_test
+        #Chef::Application.fatal!("Using linux provider!")
+      end
       private
+
 
       def create_mount_resource(physical_volume_list)
         physical_volume_list.select { |pv| ::File.exist?(pv) }.each do |pv|
